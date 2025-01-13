@@ -1,0 +1,61 @@
+# Package Overview
+package_name: regression_model
+
+# Dataset url
+training_data_file: train.csv
+test_data_file: test.csv
+raw_dataset_file: titanic.csv
+datasets_path: ./regression_model/datasets/
+dataset_url: https://gitlab.com/data/d/openml/40945/-/raw/master/dataset/tables/data.csv # https://www.openml.org/data/get_csv/16826755/phpMYEkMl
+
+# Variables
+# The variable we are attempting to predict (sale price)
+target: survived
+
+pipeline_name: regression_model
+pipeline_save_file: regression_model_output_v
+
+features:
+  - pclass
+  - survived
+  - sex
+  - age
+  - sibsp
+  - parch
+  - fare
+  - cabin
+  - embarked
+  - title
+
+# set train/test split
+test_size: 0.1
+
+# to set the random seed
+random_state: 0
+
+alpha: 0.001
+
+C_logit: 0.0005
+
+vars_to_drop:
+  - name
+  - ticket
+  - boat
+  - body
+  - home.dest
+
+categorical_vars:
+  - sex
+  - embarked
+  - title
+  - cabin
+
+numerical_vars:
+  - pclass
+  - age
+  - sibsp
+  - parch
+  - fare
+
+cabin_vars:
+  - cabin
